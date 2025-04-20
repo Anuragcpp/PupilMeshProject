@@ -6,23 +6,20 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.example.pupilmeshporject.presentation.MainScreen.FaceScreen
+import com.example.pupilmeshporject.presentation.MainScreen.MainScreen
 import com.example.pupilmeshporject.presentation.MainScreen.ManagaScreen
 
 
 fun NavGraphBuilder.mainGraph(navHostController: NavHostController){
 
     navigation(
-        startDestination = MainDestinationScreen.ManageScreen.route,
+        startDestination = MainDestinationScreen.MainScreen.route,
         route = MainDestinationScreen.MainGraph.route
     ){
 
 
-        composable(MainDestinationScreen.ManageScreen.route){
-            ManagaScreen()
-        }
-
-        composable(MainDestinationScreen.FaceScreen.route){
-            FaceScreen()
+        composable(MainDestinationScreen.MainScreen.route){
+            MainScreen()
         }
     }
 }

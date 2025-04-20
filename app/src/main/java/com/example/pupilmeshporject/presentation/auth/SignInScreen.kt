@@ -36,7 +36,8 @@ import kotlin.math.max
 @Composable
 fun SignInScreen(
     viewModel: AuthViewModel,
-    navigateToSignUpScreen : () -> Unit
+    navigateToSignUpScreen : () -> Unit,
+    navigateToMainScreen : () -> Unit
 ) {
 
 
@@ -112,7 +113,8 @@ fun SignInScreen(
                 Spacer(modifier = Modifier.height(10.dp))
 
                 Button(
-                    onClick = { /*TODO*/ },
+                    //TODO update the signin Funtionality
+                    onClick = { navigateToMainScreen() },
                     modifier = Modifier
                         .padding(16.dp)
                         .fillMaxWidth()
@@ -129,7 +131,7 @@ fun SignInScreen(
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
                         ),
-                        modifier = Modifier.clickable { navigateToSignUpScreen() }
+                        modifier = Modifier.clickable { navigateToMainScreen() }
                     )
 
                     
@@ -157,7 +159,8 @@ fun SignInScreen(
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Bold
                         ),
-                        modifier = Modifier.clickable { navigateToSignUpScreen() }
+                        modifier = Modifier.clickable {
+                            navigateToSignUpScreen() }
                     )
 
                 }

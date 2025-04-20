@@ -7,6 +7,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.example.pupilmeshporject.presentation.MainScreen.MainScreen
+import com.example.pupilmeshporject.presentation.MainScreen.navigation.MainDestinationScreen
 import com.example.pupilmeshporject.presentation.auth.AuthViewModel
 import com.example.pupilmeshporject.presentation.auth.SignInScreen
 import com.example.pupilmeshporject.presentation.auth.SignUpScreen
@@ -23,9 +25,11 @@ fun NavGraphBuilder.authGraph(
     ) {
 
         composable(AuthDestinationScreens.SignInScreen.route){
-            SignInScreen(viewModel = viewModel) {
-                navController.navigate(AuthDestinationScreens.SignUpScreen.route)
-            }
+            SignInScreen(
+                viewModel = viewModel,
+                navigateToSignUpScreen = { navController.navigate(AuthDestinationScreens.SignUpScreen.route) },
+                navigateToMainScreen = { navController.navigate(MainDestinationScreen.MainGraph.route) }
+            )
         }
 
         composable(AuthDestinationScreens.SignUpScreen.route){
