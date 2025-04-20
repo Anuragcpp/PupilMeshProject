@@ -148,7 +148,7 @@ fun SignUpScreen(
                     )
 
                     Text(
-                        text = "Sign Up",
+                        text = "Sign In",
                         style = TextStyle(
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
