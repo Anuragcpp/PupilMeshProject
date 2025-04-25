@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.pupilmeshporject.data.local.dao.UserDao
 import com.example.pupilmeshporject.data.local.database.AppDatabase
+import com.example.pupilmeshporject.data.remote.dto.ApiResponsDTO
 import com.example.pupilmeshporject.data.repository.AuthRepositoryImp
 import com.example.pupilmeshporject.domain.repository.AuthRepository
 import com.example.pupilmeshporject.domain.usecases.AuthUserCases
@@ -14,6 +15,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -28,6 +31,16 @@ object AppModule {
             AppDatabase::class.java,
             "app_db"
         ).build()
+    }
+
+    //TODO using a demo api end point as api supporting pagination is not found
+    @Provides
+    fun provideRetrofitClient() : ApiResponsDTO {
+        return Retrofit.Builder()
+            .baseUrl("demo/manga/url/api") // using a demo fake api
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiResponsDTO::class.java)
     }
 
     @Provides

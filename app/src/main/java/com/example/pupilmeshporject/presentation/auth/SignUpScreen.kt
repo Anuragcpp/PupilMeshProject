@@ -32,7 +32,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun SignUpScreen(
     viewModel: AuthViewModel,
-    navigateToSignIn : () -> Unit
+    navigateToSignIn : () -> Unit,
+    navigateToMainScreen : () -> Unit
 ) {
 
     BoxWithConstraints(modifier = Modifier
@@ -108,7 +109,10 @@ fun SignUpScreen(
                 Spacer(modifier = Modifier.height(10.dp))
 
                 Button(
-                    onClick = { viewModel.onSignUpClick()},
+                    onClick = {
+                        viewModel.onSignUpClick()
+                        if (viewModel.navigateToHome) navigateToMainScreen()
+                              },
                     modifier = Modifier
                         .padding(16.dp)
                         .fillMaxWidth()

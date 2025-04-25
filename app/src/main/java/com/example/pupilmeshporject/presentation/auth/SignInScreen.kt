@@ -114,7 +114,10 @@ fun SignInScreen(
 
                 Button(
                     //TODO update the signin Funtionality
-                    onClick = { navigateToMainScreen() },
+                    onClick = {
+                        viewModel.onSignInClick()
+                        if( viewModel.navigateToHome) navigateToMainScreen()
+                    },
                     modifier = Modifier
                         .padding(16.dp)
                         .fillMaxWidth()
@@ -130,8 +133,7 @@ fun SignInScreen(
                         style = TextStyle(
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
-                        ),
-                        modifier = Modifier.clickable { navigateToMainScreen() }
+                        )
                     )
 
                     

@@ -33,9 +33,11 @@ fun NavGraphBuilder.authGraph(
         }
 
         composable(AuthDestinationScreens.SignUpScreen.route){
-            SignUpScreen(viewModel = viewModel) {
-                navController.navigate(AuthDestinationScreens.SignInScreen.route)
-            }
+            SignUpScreen(
+                viewModel = viewModel,
+                navigateToSignIn = {navController.navigate(AuthDestinationScreens.SignInScreen.route)},
+                navigateToMainScreen = {navController.navigate(MainDestinationScreen.MainGraph.route)}
+            )
         }
     }
 

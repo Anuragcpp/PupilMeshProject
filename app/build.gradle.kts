@@ -123,6 +123,19 @@ dependencies {
     // Jetpack Compose integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
+    //retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation ("com.google.code.gson:gson:2.11.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    // image loading , coil extension
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    //pagging
+    val paging_version = "3.3.6"
+    implementation("androidx.paging:paging-runtime:$paging_version")
+    implementation ("androidx.paging:paging-compose:$paging_version")
+    //implementation platform('androidx.compose:compose-bom:2024.03.00')
 
 
 }
